@@ -60,7 +60,14 @@
       handler.del   = getDelegate && getDelegate(fn, event)
       var callback  = handler.del || fn
       handler.proxy = function (e) {
-        var result = callback.apply(element, [e].concat(e.data))
+        var result
+        if ($.onerror) {
+          try {
+            result = callback.apply(element, [e].concat(e.data))
+          } catch(e) { $.onerror(e, event, callback) }
+        } else {
+          result = callback.apply(element, [e].concat(e.data))
+        }
         if (result === false) e.preventDefault(), e.stopPropagation()
         return result
       }
