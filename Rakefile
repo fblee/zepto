@@ -1,6 +1,6 @@
 ZEPTO_VERSION = '1.0rc1'
 
-DEFAULT_MODULES = %w[ polyfill zepto event detect fx ajax form touch fx_methods selector]
+DEFAULT_MODULES = %w[zepto event detect fx ajax form touch fx_methods selector]
 
 KILO = 1024   # how many bytes in a "kilobyte"
 
